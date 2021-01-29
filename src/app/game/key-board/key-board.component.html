@@ -1,0 +1,4 @@
+<div class="inner">
+  <app-key *ngFor="let item of filteredKeys" (click)="onKeyClick(item)" [key]="item"></app-key>
+  <app-key style="width: 400px" [key]="{label:'space'}"></app-key>
+</div>

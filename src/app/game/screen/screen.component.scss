@@ -1,0 +1,79 @@
+:host {
+    background-color: black;
+    min-height: 40px;
+    padding: 30px 10px;
+    border-radius: 12px;
+    display: block;
+    margin: 10px;
+    color: white;
+    // border-top : 8px solid gray;
+    position: relative;
+    font-family: monospace;
+
+    &::after {
+        position: absolute;
+        background-color: rgb(231, 219, 219);
+        content: '';
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+        border-bottom: 2px solid rgb(204, 185, 185);
+    }
+
+    .title {
+        display: flex;
+        position: absolute;
+        top: 5px;
+        color: black;
+        z-index: 9;
+
+        justify-content: space-between;
+        width: calc(100% - 10px);
+    }
+
+    box-shadow: 0px 1px 5px 4px #0000004d;
+
+
+    button {
+        position: absolute;
+        border-radius: 10px;
+        padding: 2px 15px;
+        bottom: 5px;
+        left: 5px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        background-color: #6fab2c;
+
+        &:hover {
+            background-color: #578a1d;
+        }
+    }
+
+    &.wrong {
+        transition: 1s;
+        animation-name: wrong;
+        animation-duration: 2s;
+    }
+}
+
+
+@keyframes wrong {
+    0% {
+        background-color: red;
+    }
+
+    25% {
+        background-color: yellow;
+    }
+
+    50% {
+        background-color: red;
+    }
+
+    100% {
+        background-color: black;
+    }
+}

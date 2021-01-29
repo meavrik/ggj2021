@@ -1,0 +1,15 @@
+<span class="title">
+  <span>
+    <b style="margin: 0 10px 0 0">riddle #{{level.index+1}} : </b>{{level.quest}}
+  </span>
+
+  <span style="display: flex">
+    <app-hint *ngFor="let item of level?.hints" [hint]="item"></app-hint>
+  </span>
+
+  <!-- <span style="float: right" >⌘</span> -->
+</span>
+
+{{text$ | async}}
+
+<!-- ƒ<button [disabled]="!text">send</button> -->

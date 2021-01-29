@@ -1,0 +1,63 @@
+:host {
+
+    // background-color: #b2d8ff;
+    display: block;
+    height: 100%;
+
+    header {
+        padding: 10px;
+        background-color: orange;
+        margin: 0;
+        border-bottom: 5px solid rgb(214, 157, 51);
+    }
+
+    .game-container {
+        margin: auto;
+        max-width: 670px;
+        padding: 15px;
+
+        .hud {
+            display: flex;
+            padding: 0 10px;
+            align-items: center;
+            position: relative;
+
+            .indication-level {
+                margin: 5px;
+                padding: 2px 10px;
+                border-radius: 10px;
+                background-color: black;
+                color: white;
+                font-size: 12px;
+                border: 2px solid black;
+                cursor: pointer;
+                min-width: 10px;
+                min-height: 15px;
+
+                // line-height: 22px;
+                &.on {
+                    background-color: gold;
+                    color: black;
+                    font-weight: bold;
+                    border: 2px solid black;
+                }
+
+                &.success {
+                    background-color: rgb(31, 177, 31);
+                    font-weight: bold;
+                    border: 2px solid rgb(31, 177, 31);
+                    /* background-color: #32bea6;
+                    border: 1px solid #32bea6;
+                    padding: 1px 5px; */
+                }
+            }
+        }
+
+        .score {
+            position: absolute;
+            right: 20px;
+            font-size: 30px;
+            font-weight: bolder;
+        }
+    }
+}

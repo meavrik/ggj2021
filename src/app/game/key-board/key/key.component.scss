@@ -1,0 +1,82 @@
+:host {
+    background-color: #6e6f6e;
+    border: 3px solid black;
+    color: #343532;
+    margin: 2px;
+    padding: 5px 20px 15px 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    display: block;
+    position: relative;
+    // min-height: 15px;
+    box-shadow: inset 2px -4px 5px 0px #00000052;
+    user-select: none;
+    cursor: pointer;
+    transition: 200ms ease-out all;
+    box-sizing: border-box;
+    // max-height: 40px;
+
+    /*  &:active {
+        padding: 10px 20px 15px 20px;
+    } */
+
+    &:active {
+        padding: 5px 21px 10px 20px;
+
+        p {
+            font-size: 19px;
+            margin: 4px 0 0 0;
+            // left: 3px;
+            // height: 80%;
+        }
+
+    }
+
+    &:hover {
+        border: 3px solid gold;
+    }
+
+    &.empty {
+        box-shadow: inset -5px 4px 5px 0px #00000052;
+        background-color: #474847;
+    }
+
+    .inner {
+        transition: 200ms ease-out all;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #d4d4d2;
+        background-color: #bbbbbb;
+        border-radius: 5px;
+        height: 30px;
+        width: calc(100% - 10px);
+        left: 5px;
+        top: 0;
+        position: absolute;
+
+        &:active {
+            top: 2px;
+            height: 35px;
+            left: 2px;
+            width: calc(100% - 8px);
+            // left: 3px;
+            // height: 80%;
+        }
+    }
+
+    p {
+        pointer-events: none;
+        position: inherit;
+        margin: 0;
+        z-index: 9;
+        transition: 200ms ease-out all;
+        text-align: center;
+
+    }
+
+    /* .outer {
+        z-index: 9;
+        margin: 0;
+    } */
+}

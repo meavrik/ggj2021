@@ -1,0 +1,36 @@
+<header>
+  FIX MY KEYBOARD - <b>THE GAME!</b>
+</header>
+
+<div class="game-container">
+  <div class="hud">
+    <div *ngFor="let item of levels$ | async" class="indication-level" (click)="onLevelClick(item)"
+      [ngClass]="{'on':item.index === (currentLevel$ | async).index,'success':item.index < (currentLevel$ | async).index }">
+
+
+      <span style="position: relative" *ngIf="item.index < (currentLevel$ | async).index; else elseBlock ">
+        <img style="position: absolute;left:-5px;top:-10px" src="./assets/check-mark-black-outline.svg" height="25" alt="">
+      </span>
+      <ng-template #elseBlock> {{item.index+1}}</ng-template>
+
+
+
+    </div>
+
+
+    <div class="score">
+      {{score$ | async}}
+    </div>
+  </div>
+
+
+
+  <app-screen [level]="currentLevel$ | async" [keys]="userKeys$ | async"></app-screen>
+
+  <app-key-board [level]="currentLevel$ | async" (onkeypress)="onKeyPress($event)"></app-key-board>
+</div>
+
+<span style="position: fixed;bottom:5px;left:5px; font-size: 10px">
+  visit me at
+  <a href="https://www.avrik.com/">avrik.com</a>
+</span>

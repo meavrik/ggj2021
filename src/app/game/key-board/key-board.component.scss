@@ -1,0 +1,27 @@
+:host {
+
+    border: 3px solid black;
+    margin: 10px;
+    height: inherit;
+    // height: 100%;
+    display: block;
+    border-radius: 15px;
+    // background-color: gray;
+    position: relative;
+
+
+    .inner {
+        justify-content: center;
+        border-radius: 10px;
+        top: 0;
+        left: 0;
+        border: 5px solid gray;
+        padding: 5px;
+        height: inherit;
+        // width: inherit;
+        background-color: rgba(0, 0, 0, 0.7);
+        // position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
