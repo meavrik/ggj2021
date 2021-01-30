@@ -12,7 +12,7 @@
 
 
 {{text$ | async | uppercase}}
-<div class="box" *ngIf="!wrong && !gameOver$ | async"></div>
+<div class="box" *ngIf="!wrong && !(gameOver$ | async)"></div>
 
 <div *ngIf="wrong" class="wrong-message">
   <h3>WRONG</h3>
