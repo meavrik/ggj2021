@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, HostBinding, HostListener } from '@angular/core';
+import { GameEngineService } from '../../services/game-engine.service';
 
 @Component({
   selector: 'app-hint',
@@ -7,12 +8,13 @@ import { Component, OnInit, Input, HostBinding, HostListener } from '@angular/co
 })
 export class HintComponent implements OnInit {
   @Input() hint: string;
-  show: boolean;
 
+  @HostBinding('class.show') show: boolean;
   @HostListener('mousedown') onmousedown() {
     this.show = !this.show;
+    this.gameEngine.takeAHint();
   }
-  constructor() { }
+  constructor(private gameEngine: GameEngineService) { }
 
   ngOnInit() {
   }

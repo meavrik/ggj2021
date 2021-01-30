@@ -7,6 +7,7 @@ import { KeyBoardComponent } from './game/key-board/key-board.component';
 import { KeyComponent } from './game/key-board/key/key.component';
 import { ScreenComponent } from './game/screen/screen.component';
 import { HintComponent } from './game/screen/hint/hint.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HintComponent } from './game/screen/hint/hint.component';
     GameComponent, KeyBoardComponent, KeyComponent, ScreenComponent, HintComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule
   ],
   providers: [],

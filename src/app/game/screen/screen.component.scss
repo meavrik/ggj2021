@@ -3,7 +3,7 @@
     min-height: 40px;
     padding: 30px 10px;
     border-radius: 12px;
-    display: block;
+    display: flex;
     margin: 10px;
     color: white;
     // border-top : 8px solid gray;
@@ -28,13 +28,19 @@
         top: 5px;
         color: black;
         z-index: 9;
-
         justify-content: space-between;
         width: calc(100% - 10px);
     }
 
     box-shadow: 0px 1px 5px 4px #0000004d;
 
+    .box {
+        width: 6px;
+        height: 10px;
+        background-color: white;
+        margin: 3px;
+        animation: blink 1s infinite;
+    }
 
     button {
         position: absolute;
@@ -53,23 +59,54 @@
     }
 
     &.wrong {
-        transition: 1s;
-        animation-name: wrong;
-        animation-duration: 2s;
+        animation: wrong 0.3s 2;
+    }
+
+    .wrong-message {
+        position: absolute;
+        margin: auto;
+        text-align: center;
+        width: 100%;
+
+        h3 {
+            color: gold;
+            font-size: 26px;
+            margin: 0;
+        }
+
+        .try-again {
+            cursor: pointer;
+            background-color: rgb(33, 33, 99);
+            border-radius: 10px;
+            padding: 3px 10px;
+            width: fit-content;
+            /* text-align: center; */
+            margin: 5px auto;
+        }
     }
 }
 
 
-@keyframes wrong {
+@keyframes blink {
     0% {
-        background-color: red;
-    }
-
-    25% {
-        background-color: yellow;
+        opacity: 1;
     }
 
     50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes wrong {
+    0% {
+        background-color: black;
+    }
+
+    25% {
         background-color: red;
     }
 

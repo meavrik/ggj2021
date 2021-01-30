@@ -8,9 +8,9 @@ html {
 body {
     height: 100%;
     margin: 0;
-
     background: url("./assets/bg1.jpg") repeat 0 0;
     background-position-y: 70%;
     background-size: cover;
+    background-blend-mode: lighten;
     
 }

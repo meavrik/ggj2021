@@ -1,8 +1,8 @@
-<ng-container *ngIf="!key.hide">
+<ng-container *ngIf="!key?.hide">
   <div class="inner">
  
   </div>
-  <p>{{key.label | uppercase}}</p>
+  <p>{{key?.label | uppercase}}</p>
 </ng-container>
 
-<ng-container *ngIf="key.hide">?</ng-container>
+<ng-container *ngIf="key?.hide">?</ng-container>

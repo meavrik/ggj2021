@@ -1,7 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, HostBinding } from '@angular/core';
 import { ILevel } from '../services/game-engine.service';
-import { IKey } from './key/key.component';
-
 @Component({
   selector: 'app-key-board',
   templateUrl: './key-board.component.html',
@@ -10,24 +8,40 @@ import { IKey } from './key/key.component';
 export class KeyBoardComponent implements OnInit, OnChanges {
 
   @Input() level: ILevel;
+  @Input() disabled: boolean = true;
+  @Input() wrote: boolean = true;
   filteredKeys: any[];
-  // keys = ['A', 'B', 'C', 'D', 'SPACE', '', '', 'R', 'F', 'SHIFT', 'ALT', 'V', 'T', 'E', 'H', '', '', 'M', 'U', 'X', 'Z', '', '', '1', '2', '', '4', '5', '6'].map(a => ({ label: a }))
-
+  staticKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'del'].map(a => ({ label: a, hide: false }))
   @Output() onkeypress = new EventEmitter<string>();
+  @Output() onenter = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.staticKeys);
+
 
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.filteredKeys = this.level.keys.map(k => ({ label: k, hide: this.level.lost.find(a => a === k) }));
+    this.filteredKeys = this.level.keys.map(k =>
+      ({
+        label: this.level.mapFunc ? this.level.mapFunc(k) : k,
+        value: k,
+        hide: this.level.lost.find(a => a === k)
+      }));
   }
 
 
   onKeyClick(key) {
-    this.onkeypress.emit(key.label);
+    this.onkeypress.emit(key.value);
+  }
+
+  onDelete(key) {
+    this.onkeypress.emit(key.value);
+  }
+  onEnter() {
+    this.onenter.emit();
   }
 
 }

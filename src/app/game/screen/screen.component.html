@@ -1,6 +1,6 @@
 <span class="title">
   <span>
-    <b style="margin: 0 10px 0 0">riddle #{{level.index+1}} : </b>{{level.quest}}
+    <b style="margin: 0 5px 0 0">riddle #{{level.index+1}} : </b>{{level.quest}}
   </span>
 
   <span style="display: flex">
@@ -10,6 +10,18 @@
   <!-- <span style="float: right" >⌘</span> -->
 </span>
 
-{{text$ | async}}
 
+{{text$ | async | uppercase}}
+<div class="box" *ngIf="!wrong && !gameOver$ | async"></div>
+
+<div *ngIf="wrong" class="wrong-message">
+  <h3>WRONG</h3>
+  <p class="try-again" (click)="tryAgain()">try again</p>
+</div>
+
+
+<div *ngIf="gameOver$ | async" class="wrong-message">
+  <h3>YOU WON {{money$ | async | number}}$</h3>
+  <p class="try-again" (click)="tryAgain()">play again</p>
+</div>
 <!-- ƒ<button [disabled]="!text">send</button> -->

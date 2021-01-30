@@ -7,27 +7,34 @@
     <div *ngFor="let item of levels$ | async" class="indication-level" (click)="onLevelClick(item)"
       [ngClass]="{'on':item.index === (currentLevel$ | async).index,'success':item.index < (currentLevel$ | async).index }">
 
-
       <span style="position: relative" *ngIf="item.index < (currentLevel$ | async).index; else elseBlock ">
-        <img style="position: absolute;left:-5px;top:-10px" src="./assets/check-mark-black-outline.svg" height="25" alt="">
+        <img style="position: absolute;left:-5px;top:-10px" src="./assets/check-mark-black-outline.svg" height="25"
+          alt="">
       </span>
       <ng-template #elseBlock> {{item.index+1}}</ng-template>
-
-
-
     </div>
 
+    <div class="score-container">
+      <!-- <span style="font-size: 11px; text-align: center">prize money </span> -->
+      <div class="score">
 
-    <div class="score">
-      {{score$ | async}}
+        {{score$ | async | number}}$
+      </div>
     </div>
+
   </div>
-
-
 
   <app-screen [level]="currentLevel$ | async" [keys]="userKeys$ | async"></app-screen>
 
-  <app-key-board [level]="currentLevel$ | async" (onkeypress)="onKeyPress($event)"></app-key-board>
+  <app-key-board [wrote]="(userKeys$ | async)?.length" [level]="currentLevel$ | async" [disabled]="pause$ | async"
+    (onkeypress)="onKeyPress($event)" (onenter)="onEnter()">
+  </app-key-board>
+
+  <div class="instructions" *ngIf="showIstr" @openClose>
+     {{showIstr}}
+    <!-- <small class="instructions">{{(showIstr)}}</small> -->
+  </div>
+
 </div>
 
 <span style="position: fixed;bottom:5px;left:5px; font-size: 10px">

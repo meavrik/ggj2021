@@ -14,11 +14,11 @@
     cursor: pointer;
     transition: 200ms ease-out all;
     box-sizing: border-box;
-    // max-height: 40px;
 
-    /*  &:active {
-        padding: 10px 20px 15px 20px;
-    } */
+    &.disable {
+        pointer-events: none;
+        opacity: 0.5;
+    }
 
     &:active {
         padding: 5px 21px 10px 20px;

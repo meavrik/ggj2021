@@ -2,6 +2,7 @@ import { Component, OnInit, Input, HostBinding, HostListener } from '@angular/co
 
 export interface IKey {
   label: string;
+  value: string;
   hide?: boolean;
 }
 
@@ -15,11 +16,14 @@ export class KeyComponent implements OnInit {
   @Input() key: IKey;
 
   @HostBinding('class.empty') isEmpty = false;
-
+  @HostBinding('class.disable') @Input() disabled: boolean;
   constructor() { }
 
   ngOnInit() {
-    this.isEmpty = this.key.hide;
+    if (this.key) {
+      this.isEmpty = this.key.hide;
+    }
+
   }
 
 }

@@ -11,29 +11,23 @@ export class ScreenComponent implements OnInit {
   @Input() level: ILevel;
   @Input() keys: string[];
   text$ = this.gameEngine.userKeys$.pipe(map(k => k.join('')));
+  gameOver$ = this.gameEngine.gameOver$;
+  money$ = this.gameEngine.money$;
 
   @HostBinding('class.wrong') wrong: boolean;
 
   constructor(private gameEngine: GameEngineService) { }
 
   ngOnInit() {
-    this.gameEngine.isWrongChar$.subscribe(wrong => {
+    this.gameEngine.wrongAnswear$.subscribe(wrong => {
+      this.gameEngine.pause$.next(true);
       this.wrong = wrong;
-      if (wrong) {
-        console.log('WRONG!!!');
-        
-        setTimeout(() => {
-          this.gameEngine.reset();
-        }, 2000);
-
-      }
-
     })
-
   }
 
-  /* ngOnChanges(changes: SimpleChanges): void {
-    this.text = this.keys.join('');
-  } */
+  tryAgain() {
+    this.gameEngine.pause$.next(false);
+    this.wrong = false;
+  }
 
 }

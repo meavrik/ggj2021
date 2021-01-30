@@ -13,7 +13,7 @@
 
     .game-container {
         margin: auto;
-        max-width: 670px;
+        max-width: 720px;
         padding: 15px;
 
         .hud {
@@ -53,11 +53,20 @@
             }
         }
 
-        .score {
+        .score-container {
             position: absolute;
             right: 20px;
-            font-size: 30px;
-            font-weight: bolder;
+
+            .score {
+                font-size: 30px;
+                font-weight: bolder;
+                margin: 0;
+            }
+        }
+
+        .instructions {
+            display: flex;
+            justify-content: center;
         }
     }
 }
