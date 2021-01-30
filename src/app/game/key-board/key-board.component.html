@@ -3,10 +3,10 @@
   <app-key *ngFor="let item of filteredKeys" (click)="onKeyClick(item)" [disabled]="disabled" [key]="item"></app-key>
   <!-- <app-key style="width: 200px" [key]="{label:'enter'}" [disabled]="disabled || !wrote" (click)="onEnter()"></app-key> -->
 
-  <div style="display:flex">
+  <div style="display:flex;flex-wrap: wrap">
     <app-key [key]="{label:'⇧'}" [disabled]="true"></app-key>
     <app-key [key]="{label:'⌘'}" [disabled]="true"></app-key>
-    <app-key style="width: 400px" [key]="{label:'enter'}" [disabled]="disabled || !wrote" (click)="onEnter()"></app-key>
+    <app-key style="width: 350px" [key]="{label:'enter'}" [disabled]="disabled || !wrote" (click)="onEnter()"></app-key>
     <app-key [key]="{label:'del',value:'del'}" [disabled]="disabled || !wrote"
       (click)="onDelete({label:'del',value:'del'})"></app-key>
   </div>

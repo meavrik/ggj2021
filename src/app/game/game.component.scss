@@ -17,6 +17,7 @@
         padding: 15px;
 
         .hud {
+            flex-wrap: wrap;
             display: flex;
             padding: 0 10px;
             align-items: center;
@@ -30,7 +31,7 @@
                 color: white;
                 font-size: 12px;
                 border: 2px solid black;
-                cursor: pointer;
+                // cursor: pointer;
                 min-width: 10px;
                 min-height: 15px;
 
@@ -56,6 +57,7 @@
         .score-container {
             position: absolute;
             right: 20px;
+            bottom: 0;
 
             .score {
                 font-size: 30px;

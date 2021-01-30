@@ -10,26 +10,20 @@
     position: relative;
     font-family: monospace;
 
-    &::after {
+    header {
         position: absolute;
-        background-color: rgb(231, 219, 219);
-        content: '';
         top: 0;
         left: 0;
-        height: 25px;
-        width: 100%;
+        padding: 5px 10px;
+        background-color: rgb(231, 219, 219);
+        // height: 25px;
+        //  width: 100%;
+        width: calc(100% - 20px);
         border-radius: 10px 10px 0 0;
         border-bottom: 2px solid rgb(204, 185, 185);
-    }
-
-    .title {
         display: flex;
-        position: absolute;
-        top: 5px;
-        color: black;
-        z-index: 9;
         justify-content: space-between;
-        width: calc(100% - 10px);
+        color: black;
     }
 
     box-shadow: 0px 1px 5px 4px #0000004d;

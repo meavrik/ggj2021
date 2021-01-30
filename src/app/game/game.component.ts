@@ -3,6 +3,7 @@ import { GameEngineService } from './services/game-engine.service';
 import { map } from 'rxjs/operators';
 import { of, interval, combineLatest, timer } from 'rxjs';
 import { animate, state, transition, trigger, style } from '@angular/animations';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-game',
@@ -34,7 +35,7 @@ export class GameComponent implements OnInit {
     'try to save as much money as you can (game & life goal)', ''
   ]
   showIstr: string;
-  currentInstruction$ = combineLatest(timer(1000,5000), of(this.instructions), (time, inst) => inst[time % inst.length])
+  currentInstruction$ = combineLatest(timer(1000, 5000), of(this.instructions), (time, inst) => inst[time % inst.length])
   constructor(private gameEngine: GameEngineService) { }
 
   ngOnInit() {
@@ -54,7 +55,10 @@ export class GameComponent implements OnInit {
 
   // only for debug!!
   onLevelClick(level) {
-    this.gameEngine.goToLevel(level.index)
+    if (!environment.production) {
+      this.gameEngine.goToLevel(level.index);
+    }
+
   }
 
 }
